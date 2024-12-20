@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="itemName">
+    <button onclick="addItems()">add</button>
+
+    <ul class="result">
+
+    </ul>
+
+    <button onclick="deletItem(5)">delete</button>
+    <script>
+
+        let items = [];
+
+        function printLi(){
+
+        }
+
+        function addItems(){
+            let itemName = document.getElementById("itemName").value;
+            // console.log(itemName)
+            items.push(itemName)
+
+            // printli()
+
+            let li = "";
+
+            for(let i=0; i < items.length; i++){
+                li +=  `<li>
+                    ${items[i]} 
+                     <button onclick="deletItem(${i})">delete</button></li>`
+            }
+            document.querySelector(".result").innerHTML =li;
+
+        }
+
+        function deletItem(id){
+            // console.log(id)
+            items.splice(id, 1);
+
+
+
+            let li = "";
+            // printli()
+            
+            for(let i=0; i < items.length; i++){
+                li +=  `<li>
+                    ${items[i]} 
+                     <button onclick="deletItem(${i})">delete</button>
+                     </li>`
+            }
+            document.querySelector(".result").innerHTML =li;
+        }
+    </script>
+</body>
+</html>
